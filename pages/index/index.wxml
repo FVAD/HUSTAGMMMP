@@ -1,28 +1,46 @@
-<!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+<view class="back">
+  <image src="../../pages/image/back.png" mode="widthFix" style="width: 750rpx;"></image>
+</view>
+
+
+<!-- 第一部分 -->
+<view class="header">
+  <view class="title">AG物资管理</view>
+</view>
+
+
+
+<!-- 第二部分 -->
+<!-- 用户界面 -->
+<view class="body">
+   
+
+    <view class="input1">
+      <view class="front" style="width: 200rpx; height: 42rpx; display: block; box-sizing: border-box">是否为管理员</view>
+    <picker bindchange="bindguanliChange" value="{{guanli}}" range="{{array1}}">
+      <view class="one">
+        请选择是/否为管理员：{{array1[guanli]}}
         </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+    </picker>
     </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+
+   
+    <view class="input2">
+      <view class="front" style="width: 72rpx; height: 42rpx; display: block; box-sizing: border-box">部门</view>
+    <picker bindchange="bindbumenChange" value="{{bumen}}" range="{{array2}}">
+      <view class="one">
+        请选择所在部门：{{array2[bumen]}}
+      </view>
+    </picker>
     </view>
-  </view>
-</scroll-view>
+
+      <view class="input3">
+      <view class="front" style="width: 72rpx; height: 42rpx; display: block; box-sizing: border-box">学号</view>
+      <input type="text" class="two" bindinput="studentid" maxlength="10" placeholder="请输入学号" />
+    </view>
+   
+
+    <button class="button" type="primary" style="width: 96%;" bindtap="onlogin" disabled="{{loginbtnstate}}">点击登录</button>
+</view>
+
+
