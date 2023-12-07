@@ -56,7 +56,7 @@ Page({
     })
     console.log(app.globalData.isLogin)
     if (!this.data.isLogin) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/index/index',
       })
     }

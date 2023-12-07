@@ -1,9 +1,10 @@
 //云开发初始化
+/*
 wx.cloud.init({
   env: 'sujc666-2g3w561sc2025c24', 
   traceUser: true,
 })
-
+*/
 var app = getApp()
 
 Page({
@@ -88,7 +89,9 @@ Page({
     app.globalData.isLogin = true;
     this.sleep(2000)
     .then(() => {
-      wx.navigateBack();
+      wx.redirectTo({
+        url: '/pages/home/home',
+      });
     });
     // console.log('执行')
     // 这段代码结束
