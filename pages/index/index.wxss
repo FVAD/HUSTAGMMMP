@@ -4,20 +4,23 @@
     z-index: -999;
         }
 /* 第一部分 */
-.header{
-   padding-bottom: 620rpx;
+.HeadContainer{
+  margin-top: 75px;
+  margin-left: 20px;
+  padding-bottom: 620rpx;
 }
-.title{
-    padding: 50rpx;
-    padding-bottom: 80rpx;
-    color: #000;
-    font-family: PingFang SC;
-    font-size: 48rpx;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 42rpx; /* 87.5% */
-    letter-spacing: -0.64rpx;
+
+.TitleText{
+  color: #000;
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 87.5%;
+  letter-spacing: -0.32px;
 }
+
 
 
 /* 第二部分 */

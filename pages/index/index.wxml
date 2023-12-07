@@ -1,11 +1,11 @@
 <view class="back">
-  <image src="../../pages/image/back.png" mode="widthFix" style="width: 750rpx;"></image>
+  <image src="/images/loginback.png" mode="widthFix" style="width: 750rpx;"></image>
 </view>
 
 
 <!-- 第一部分 -->
-<view class="header">
-  <view class="title">AG物资管理</view>
+<view class="HeadContainer">
+    <text class="TitleText">AG物资管理-Login</text>
 </view>
 
 

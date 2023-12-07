@@ -1,4 +1,6 @@
 // pages/home/home.js
+var app = getApp()
+
 Page({
 
   /**
@@ -6,6 +8,7 @@ Page({
    */
   data: {
     showModal1: false,
+    isLogin: true,
   },
 
   goSearch() {
@@ -48,7 +51,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      isLogin: app.globalData.isLogin
+    })
+    console.log(app.globalData.isLogin)
+    if (!this.data.isLogin) {
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

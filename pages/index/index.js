@@ -4,10 +4,12 @@ wx.cloud.init({
   traceUser: true,
 })
 
+var app = getApp()
 
 Page({
 
   data: {
+          isLogin: true,
           array1: ['否', '是'],
           objectArray: [
             {id: 0, name: '否'},
@@ -64,6 +66,12 @@ Page({
     }
   },
   
+  sleep: function (milliseconds) {
+    return new Promise(resolve => {
+      setTimeout(resolve, milliseconds);
+    });
+  },
+
   onlogin:function(e){
     let guanli=this.data.guanli
     let bumen=this.data.bumen
@@ -71,11 +79,24 @@ Page({
     console.log('guanli',guanli)
     console.log('bumen',bumen)
     console.log('xuehao',xuehao)
-
+    // 登录成功（没有连上数据库所以写了这段代码）
+    
+    wx.showToast({
+      title: '登录成功',
+      icon: '/images/Complete.png'
+    })
+    app.globalData.isLogin = true;
+    this.sleep(2000)
+    .then(() => {
+      wx.navigateBack();
+    });
+    // console.log('执行')
+    // 这段代码结束
     //登录
     wx. cloud. database(). collection('user'). where({
       xuehao:xuehao
     }).
+    
     get({
       success(res){
         console. log("获取数据成功", res)
